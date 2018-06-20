@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>JSF Tutorial!</title>
+</h:head>
+
+<h:body>
+	<h:outputStylesheet library="css" name="basicStyle.css"></h:outputStylesheet>
+	
+	<h:form style="alight: left; padding: 2px;">
+		<h:commandButton action="home" value="Back to home page" />
+	</h:form>
+	<h1>This is Page 1</h1>
+	<hr />
+	<h2>1. Tag Example</h2>
+	<hr />
+	<h:inputHidden id="userId" value="User10"/>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="Ten:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+		<h:inputText value="Nhập dữ liệu"
+			style="float: left; padding: 2px;text-align: center;" lang="50"/>
+	</div>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="Mat khau:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+		<h:inputSecret value="Nhập dữ liệu"
+			style="float: left; padding: 2px;text-align: center;" lang="30"/>
+	</div>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="Gioi tinh:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+		<h:selectOneMenu value="gioiTinh" style="float: left; padding: 2px;">
+			<f:selectItem itemValue="1" itemLabel="Nu"/>
+			<f:selectItem itemValue="2" itemLabel="Nam"/>
+			<f:selectItem itemValue="3" itemLabel="Gioi tinh thu 3"/>
+			<f:selectItem itemValue="4" itemLabel="Khong xac dinh gioi tinh"/>
+		</h:selectOneMenu>
+	</div>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="Ky nang:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+		<h:selectManyCheckbox value="skills" style="float: left; padding: 2px;">
+			<f:selectItem itemValue="1" itemLabel="Java-Core"/>
+			<f:selectItem itemValue="2" itemLabel="JSP-Servlet"/>
+			<f:selectItem itemValue="3" itemLabel="HTML-CSS"/>
+			<f:selectItem itemValue="4" itemLabel="JavaScript"/>
+		</h:selectManyCheckbox>
+	</div>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="Mong muon hoc:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+		<h:selectOneRadio value="learn" style="float: left; padding: 2px;">
+			<f:selectItem itemValue="1" itemLabel="Basic Java-Web"/>
+			<f:selectItem itemValue="2" itemLabel="Advance Java-Web"/>
+			<f:selectItem itemValue="3" itemLabel="Web Design"/>
+			<f:selectItem itemValue="4" itemLabel="PHP"/>
+			<f:selectItem itemValue="5" itemLabel="Android"/>
+		</h:selectOneRadio>
+	</div>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="Gio co the hoc:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+		<h:selectOneListbox value="shiftClass" style="float: left; padding: 2px;">
+			<f:selectItem itemValue="1" itemLabel="Ca 1"/>
+			<f:selectItem itemValue="2" itemLabel="Ca 2"/>
+			<f:selectItem itemValue="3" itemLabel="Ca 3"/>
+			<f:selectItem itemValue="4" itemLabel="Ca 4"/>
+			<f:selectItem itemValue="5" itemLabel="Ca 5"/>
+		</h:selectOneListbox>
+	</div>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="Ban do lop hoc:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+		<h:graphicImage value="http://www.tutorialspoint.com/images/jsf-mini-logo.png" />
+	</div>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="Mo ta:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+		<h:inputTextarea value="Mo ta" rows="8" cols="25"  style="float: left; padding: 2px; text-align: center;"/>
+	</div>
+	<div style="float: left; width: 100%;">
+		<h:outputText value="nhan new-Letter:"
+			style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px; overflow: visible;" />
+		<h:selectBooleanCheckbox value="Dong y" id="getNewLetter"/>
+	</div>
+</h:body>
+</html>

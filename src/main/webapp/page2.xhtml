@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Hello JSF!</title>
+</h:head>
+
+<h:body>
+	<h2>This is Page 2</h2>
+	<hr />
+	<h:form>
+		<h:commandButton action="home" value="Back to home page" />
+	</h:form>
+	<hr />
+	<div style="float: left;">
+		<h:dataTable value="#{userAction.users}" var="user" border="1"
+			style="float:left; max-width:65%;">
+			<h:column>
+				<f:facet name="header">UserName</f:facet>
+				<h:outputText value="#{user.userName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">First Name</f:facet>
+				<h:outputText value="#{user.firstName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Last Name</f:facet>
+				<h:outputText value="#{user.lastName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">BirthDay</f:facet>
+				<h:outputText value="#{user.birthDay}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Permission</f:facet>
+				<h:outputText value="#{user.permission.permissionName}" />
+			</h:column>
+		</h:dataTable>
+		
+		<h:form style="float:left; width: 30%; margin-left: 10px;">
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Tên:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+				<h:inputText value="#{userAction.user.firstName}" />
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Họ:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+				<h:inputText value="#{userAction.user.lastName}" />
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Địa chỉ liên hệ:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+				<h:inputText value="#{userAction.user.address}" />
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Email:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+				<h:inputText value="#{userAction.user.email}" />
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Tên truy cập:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+				<h:inputText value="#{userAction.user.userName}" />
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Mật khẩu:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+				<h:inputSecret value="#{userAction.user.password}" />
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Xác nhận mật khẩu:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+				<h:inputSecret value="#{userAction.user.password}" />
+			</div>
+		</h:form>
+	</div>
+</h:body>
+</html>

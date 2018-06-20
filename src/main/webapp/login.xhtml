@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Login</title>
+</h:head>
+
+<h:body>
+	<h2>Login page</h2>
+	<h:form style="float:left; width: 30%; margin-left: 10px;">
+		<div style="float: left; width: 100%; padding-bottom: 5px;">
+			<h:outputText value="UserName:"
+				style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+			<h:inputText value="#{userAction.user.userName}" />
+		</div>
+		<div style="float: left; width: 100%; padding-bottom: 5px;">
+			<h:outputText value="Password:"
+				style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 150px;" />
+			<h:inputSecret value="#{userAction.user.password}" />
+		</div>
+		<div style="float: left; width: 100%; padding-bottom: 5px;">
+			<center>
+				<h:commandButton value="Login" type="submit" action="#{userAction.login}" style="margin: 2px;"/>
+				<h:commandButton value="Reset" type="reset" style="margin: 2px;"/>
+			</center>
+		</div>
+		<h:outputText value="#{userAction.loginMessage}" style="font-color:red;"/>
+	</h:form>
+</h:body>
+</html>

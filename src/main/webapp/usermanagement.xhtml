@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Users List</title>
+	<link style="text/css" rel="stylesheet" href="css/basicStyle.css" />
+</h:head>
+
+<h:body>
+	<h2>User List</h2>
+	<div style="float: left;" class="rowStyle">
+		<h:form id="listForm">
+			<div style="padding: 5px; width: 100%; float: left;">
+				<div style="float: left; width: 45%; padding-right: 5px">
+					<h:outputLabel value="Chon nhom quyen:" />
+				</div>
+				<div style="float: left; width: 50%; padding-left: 2px">
+					<h:selectOneMenu value="#{userAction.permissionId}"
+						valueChangeListener="#{userAction.changePermission}"
+						onchange="submit()">
+						<f:selectItem itemValue="0" itemLabel="Chon tat ca cac quyen" />
+						<f:selectItems value="#{userAction.permissions}" var="p"
+							itemValue="#{p.id}" itemLabel="#{p.permissionName}" />
+					</h:selectOneMenu>
+				</div>
+			</div>
+
+			<div style="padding: 5px; width: 100%; float: left;">
+				<h:selectOneMenu value="#{userAction.permissionId}"
+					id="permissionSelectList">
+					<f:ajax event="valueChange"
+						execute=":listForm:permissionSelectList"
+						render=":listForm:userDataTable"
+						listener="#{userAction.selectPermission}" />
+					<f:selectItem itemValue="0" itemLabel="------ Chọn tất ------" />
+					<f:selectItems value="#{userAction.permissions}" var="per"
+						itemValue="#{per.id}" itemLabel="#{per.permissionName}" />
+				</h:selectOneMenu>
+			</div>
+
+			<h:commandButton value="Add new User" action="adduser"
+				style="margin-bottom: 5px; margin-right: 10px;" />
+
+			<h:commandButton value="Add new user (popup)">
+				<rich:componentControl target="popup" operation="show" />
+			</h:commandButton>
+
+			<h:dataTable value="#{userAction.users}" var="user" border="1"
+				id="userDataTable">
+				<h:column>
+					<f:facet name="header">UserName</f:facet>
+					<h:outputText value="#{user.userName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">First Name</f:facet>
+					<h:outputText value="#{user.firstName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Last Name</f:facet>
+					<h:outputText value="#{user.lastName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">BirthDay</f:facet>
+					<h:outputText value="#{user.birthDay}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Date Signup</f:facet>
+					<h:outputText value="#{user.dateSingUp}" />
+				</h:column>
+			</h:dataTable>
+
+		</h:form>
+		<!-- 
+			Mở popup sử dụng Richface:
+			- modal=false thì không hiển thị masklayer, bằng true thì có.
+			- autosized = false thì cửa sổ co dãn ko tự dộng và cho phép resizable
+			- resizeable=true cho phép người dùng tự co dãn cửa sổ.
+			 -->
+		<rich:popupPanel id="popup" modal="true" autosized="true"
+			resizeable="false" onmaskclick="#{rich:component('popup')}.hide()"
+			style="width: 450px; height: auto;">
+			<f:facet name="header">
+				<h:outputText value="Thêm mới người dùng" />
+			</f:facet>
+			<f:facet name="controls">
+				<h:outputLink value="#"
+					onclick="#{rich:component('popup')}.hide(); return false;"
+					style="color: inherit">
+                		X
+           			</h:outputLink>
+			</f:facet>
+			<ui:include src="adduser.xhtml" />
+		</rich:popupPanel>
+	</div>
+</h:body>
+</html>

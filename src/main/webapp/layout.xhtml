@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+	<div id="pageBody" style="border: 1px slid red;">
+
+		<div id="siteHeader"
+			style="border: 1px solid blue; width: 100%; text-align: center; padding: 2px;">
+			<ui:insert name="siteHeader">
+				<ui:include src="layoutHeader.xhtml" />
+			</ui:insert>
+		</div>
+
+		<div id="siteContent"
+			style="border: 1px solid gray; width: 100%; text-align: center; padding: 2px; float: left;">
+			<div style="float: left; max-width: 40%; width: 30%; padding: 2px; border: 1px solid black;">
+				<ui:insert name="siteMenu">
+					<ui:include src="layoutMenu.xhtml" />
+				</ui:insert>
+			</div>
+			<div style="float: left; width: 60%; padding: 2px;">
+				<ui:insert name="siteContent">
+					<ui:include src="layoutContent.xhtml" />
+				</ui:insert>
+			</div>
+		</div>
+
+		<div id="siteFooter"
+			style="border: 1px solid green; width: 100%; text-align: center; padding: 2px;">
+			<ui:insert name="siteFooter">
+				<ui:include src="layoutFooter.xhtml" />
+			</ui:insert>
+		</div>
+
+	</div>
+
+</h:body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>vi</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+	</application>
+
+
+
+	<!-- <managed-bean> <managed-bean-name>userActionListener</managed-bean-name> 
+		<managed-bean-class>com.tiyworld.jsf.action.UserActionListener</managed-bean-class> 
+		<managed-bean-scope>request</managed-bean-scope> <managed-property> <property-name>firstName</property-name> 
+		<property-class>java.lang.String</property-class> <value></value> </managed-property> 
+		<managed-property> <property-name>lastName</property-name> <property-class>java.lang.String</property-class> 
+		<value></value> </managed-property> <managed-property> <property-name>userName</property-name> 
+		<property-class>java.lang.String</property-class> <value></value> </managed-property> 
+		</managed-bean> <managed-bean> <managed-bean-name>permissionAction</managed-bean-name> 
+		<managed-bean-class>com.tiyworld.jsf.action.PermissionAction</managed-bean-class> 
+		<managed-bean-scope>request</managed-bean-scope> </managed-bean> <navigation-rule> 
+		<from-view-id>home.xhtml</from-view-id> <navigation-case> <from-action>#{navigationController.processPage1}</from-action> 
+		<from-outcome>page</from-outcome> <to-view-id>page1.xhtml</to-view-id> </navigation-case> 
+		</navigation-rule> <navigation-rule> <from-view-id>home.xhtml</from-view-id> 
+		<navigation-case> <from-action>#{navigationController.processPage2}</from-action> 
+		<from-outcome>page</from-outcome> <to-view-id>page2.xhtml</to-view-id> </navigation-case> 
+		</navigation-rule> -->
+</faces-config>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Add new User</title>
+</h:head>
+
+<h:body>
+	<div style="float: left; width: 450px; border: 1px solid red;">
+		<h:form style="float:left; width: 100%; margin-left: 10px;" id="addNewUserForm">
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Tên:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 180px;" />
+				<h:inputText value="#{userAction.user.firstName}">
+				</h:inputText>
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Họ:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 180px;" />
+				<h:inputText value="#{userAction.user.lastName}">
+				</h:inputText>
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Địa chỉ liên hệ:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 180px;" />
+				<h:inputText value="#{userAction.user.address}" />
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Email:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 180px;" />
+				<h:inputText value="#{userAction.user.email}">
+				</h:inputText>
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Tên truy cập:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 180px;" />
+				<h:inputText value="#{userAction.user.userName}">
+				</h:inputText>
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Mật khẩu:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 180px;" />
+				<h:inputSecret value="#{userAction.user.password}">
+				</h:inputSecret>
+			</div>
+			<div style="float: left; width: 100%; padding-bottom: 5px;">
+				<h:outputText value="Xác nhận mật khẩu:"
+					style="float: left; padding: 2px; line-height: 24px; text-align: right; min-width: 180px;" />
+				<h:inputSecret value="#{userAction.user.password}">
+				</h:inputSecret>
+			</div>
+			<div style="float: center; width: 100%; padding-bottom: 5px;">
+				<h:commandButton value="Save" type="submit" onclick="#{rich:component('popup')}.hide()" style="margin-right: 10px;">
+					<f:ajax event="click"
+						execute=":addNewUserForm"
+						render=":listForm:userDataTable"
+						listener="#{userAction.addNewUser}" />
+				</h:commandButton>
+				<h:commandButton value="Close" type="button" onclick="#{rich:component('popup')}.hide()"/>
+			</div>
+		</h:form>
+	</div>
+</h:body>
+</html>

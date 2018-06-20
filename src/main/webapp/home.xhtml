@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title>JSF Tutorial!</title>
+</head>
+
+<h:body>
+	<h1>#{helloWorld.message}</h1>
+	<hr />
+	<h2>Implicit Navigation</h2>
+	<hr />
+	<b>Using Managed Bean</b>
+	<br />
+	<b>Using JSF outcome</b>
+	<hr />
+	<div style="float: left; width: 100%;">
+		<div
+			style="float: left; margin-right: 10px; width: 45%; border: 1px solid gray; padding: 5px;">
+			<h2>Navigation:</h2>
+			<h:form>
+				<!-- action se goi toi trang page2.xhtml -->
+					Auto navigation: 
+					<h:commandButton action="login" value="Login" />
+			</h:form>
+			<br />
+			<img src="image/demo.png"></img>
+			<h:graphicImage value="image/demo.png" />
+			<h:form>
+					Auto navigation in managed bean:
+					<h:commandButton action="#{navigationController.moveToPage1}"
+					value="Page 1" />
+			</h:form>
+			<hr />
+
+			<h2>Condition navigation:</h2>
+			<h:form>
+				<h:commandLink action="#{navigationController.showPage}"
+					value="Page 1" style="padding: 0px 5px;">
+					<f:param name="pageId" value="1" />
+				</h:commandLink>
+				<h:commandLink action="#{navigationController.showPage}"
+					value="Page 2" style="padding: 0px 5px;">
+					<f:param name="pageId" value="2" />
+				</h:commandLink>
+				<h:commandLink action="#{navigationController.showPage}"
+					value="Home" style="padding: 0px 5px;">
+					<f:param name="pageId" value="0" />
+				</h:commandLink>
+			</h:form>
+			<hr />
+
+			<h2>Resolving Navigation based on from-action</h2>
+			<h:form>
+				<h:commandLink action="#{navigationController.processPage1}"
+					value="Page 1" style="padding: 0px 5px;" />
+				<h:commandLink action="#{navigationController.processPage2}"
+					value="Page 2" style="padding: 0px 5px;" />
+			</h:form>
+			<hr />
+
+			<h2>Forward vs Redirection Navigation</h2>
+			<h:form>
+				<h3>Forward</h3>
+				<h:commandButton action="page1" value="Page 1" />
+				<h3>Redirect</h3>
+				<h:commandButton action="page1?faces-redirect=true" value="Page 1" />
+			</h:form>
+		</div>
+
+		<div
+			style="float: left; width: 50%; border: 1px solid gray; padding: 5px;">
+			<h:link value="Basic Tags" outcome="basicTag/tags" />
+		</div>
+	</div>
+</h:body>
+</html>
